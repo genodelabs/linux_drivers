@@ -1,8 +1,0 @@
-This directory contains the USB driver supporting USB HID and USB storage
-devices.
-
-For using the USB driver as input service (supporting USB HID), add
-the '<hid/>' tag to the 'usb_drv' configuration. Analogously, for
-using the driver as block service, add the '<storage/>' tag.
-Both tags can be combined.
-

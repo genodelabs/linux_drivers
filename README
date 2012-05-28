@@ -6,23 +6,10 @@ original code is available at the official website.
 
 Currently available drivers are:
 
-
-Network device drivers
-======================
-
-:Library: dde_linux26_net.mk
-:API: dde_linux26/net.h
-:Example: test-dde_linux26_net
-
-
-USB drivers
-===========
-
-:Monolithic USB HID driver library:     dde_linux26_usbhid.mk
-:Monolithic USB storage driver library: dde_linux26_usbstorage.mk
-:Monolithic USB service:
-  * Provides Input and Block for HID resp. mass storage
-  * Uses dde_linux26_usbhid.mk and dde_linux26_usbstorage.mk
+* ALSA sound
+* Intel GPUs
+* MadWifi wireless network cards
+  * This driver needs the 'uudecode' tool.
 
 
 DDE References
