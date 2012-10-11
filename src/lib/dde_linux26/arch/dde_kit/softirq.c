@@ -229,7 +229,7 @@ static void __do_softirq(void)
 }
 
 
-void do_softirq(void)
+asmlinkage void do_softirq(void)
 {
 	unsigned long flags;
 
