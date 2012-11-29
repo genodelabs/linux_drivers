@@ -680,7 +680,7 @@ class drm_mm_priv
 			unsigned align_log2 = alignment ? Genode::log2(alignment) : 0;
 
 			void *addr = 0;
-			if (!_alloc.alloc_aligned(size, &addr, align_log2)) {
+			if (_alloc.alloc_aligned(size, &addr, align_log2).is_error()) {
 				PERR("allocation failed");
 				return 0;
 			}
