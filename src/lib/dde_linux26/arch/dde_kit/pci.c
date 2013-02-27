@@ -151,8 +151,8 @@ int pci_create_sysfs_dev_files(struct pci_dev *pdev)
 
 static int dde_linux26_init_pci(void)
 {
-	/* initialize DDE kit to get virtual bus hierarchy */
-	dde_kit_pci_init();
+	/* initialize DDE kit to get virtual bus hierarchy with all PCI devices */
+	dde_kit_pci_init(0, 0);
 
 	/*
 	 * TODO check if all devices on all buses are scanned/added here.
