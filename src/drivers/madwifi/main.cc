@@ -79,11 +79,14 @@ namespace Nic {
 	static void dde_tx_handler(const char *essid);
 
 
+	typedef Genode::Thread<8192> Tx_handler_thread;
+
+
 	/*
 	 * Nic-session component class
 	 */
 	class Session_component : public Session_rpc_object,
-	                          public Genode::Thread<8192>
+	                          public Tx_handler_thread
 	{
 		private:
 
@@ -107,10 +110,13 @@ namespace Nic {
 			                  Genode::Allocator_avl  *rx_block_alloc,
 			                  const char             *essid,
 			                  Genode::Rpc_entrypoint &ep)
-			: Session_rpc_object(Genode::env()->ram_session()->alloc(tx_buf_size),
-			                     Genode::env()->ram_session()->alloc(rx_buf_size),
-			                     static_cast<Genode::Range_allocator *>(rx_block_alloc), ep),
-			  _startup_lock(Genode::Lock::LOCKED), _essid(essid) { }
+			:
+				Session_rpc_object(Genode::env()->ram_session()->alloc(tx_buf_size),
+				                   Genode::env()->ram_session()->alloc(rx_buf_size),
+				                   static_cast<Genode::Range_allocator *>(rx_block_alloc), ep),
+				Tx_handler_thread("tx_handler"),
+				_startup_lock(Genode::Lock::LOCKED), _essid(essid)
+			{ }
 
 			Mac_address  mac_address() { return _mac_addr;    }
 			Tx::Sink*    tx_sink()     { return _tx.sink();   }
