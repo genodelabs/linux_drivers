@@ -1,3 +1,7 @@
+linux_drivers is obsolete since Genode 15.05 and will not be adapted
+to recent versions. Please use repos/dde_linux in the genode
+repository. Original README follows...
+
 This repository contains the Device Driver Environment for the "donator OS"
 Linux 2.6.20. DDE Linux 2.6 is based on code from the TUD:OS project. The
 original code is available at the official website.
